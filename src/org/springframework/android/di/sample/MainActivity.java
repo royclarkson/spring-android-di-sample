@@ -25,8 +25,8 @@ public class MainActivity extends SpringActivity {
 	
 
 	//***************************************
-    // Activity methods
-    //***************************************
+	// Activity methods
+	//***************************************
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -41,8 +41,8 @@ public class MainActivity extends SpringActivity {
 	
 	
 	//***************************************
-    // Private methods
-    //***************************************
+	// Private methods
+	//***************************************
 	private void refreshResults(String results) {
 		if (results == null) {
 			return;
@@ -54,8 +54,8 @@ public class MainActivity extends SpringActivity {
 	
 	
 	//***************************************
-    // Private classes
-    //***************************************
+	// Private classes
+	//***************************************
 	private class TwitterSearchTask extends AsyncTask<Void, Void, String> {
 
 		@Override
