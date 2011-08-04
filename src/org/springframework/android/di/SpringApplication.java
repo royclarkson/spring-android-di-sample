@@ -4,8 +4,6 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.web.client.RestTemplate;
-
 import android.app.Activity;
 import android.app.Application;
 
@@ -16,8 +14,6 @@ public abstract class SpringApplication extends Application {
 	@Override
 	public void onCreate () {
 		super.onCreate();
-		
-		dependencies.put(RestTemplate.class, new RestTemplate());
 	}
 	
 	void injectDependencies(Activity activity) {
@@ -29,9 +25,9 @@ public abstract class SpringApplication extends Application {
 					if (field.get(activity) == null) {
 						Class<?> classToInject = field.getType();
 						if (dependencies.containsKey(classToInject)) {
-		                	Object object = dependencies.get(classToInject);
+							Object object = dependencies.get(classToInject);
 							field.set(activity, object);
-			            }
+						}
 					}
 				} catch (IllegalArgumentException e) {
 					throw new RuntimeException(e);
@@ -39,8 +35,11 @@ public abstract class SpringApplication extends Application {
 					throw new RuntimeException("Unable to access field.", e);
 				}
 			}
-		}
-		
+		}	
+	}
+	
+	protected void addDependency(Class<?> c, Object o) {
+		dependencies.put(c, o);
 	}
 
 }

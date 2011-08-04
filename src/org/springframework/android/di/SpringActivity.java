@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 public abstract class SpringActivity extends Activity {
 	
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-    	SpringApplication application = (SpringApplication) getApplication();
-        application.injectDependencies(this);
-        super.onCreate(savedInstanceState);
-    }
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		SpringApplication application = (SpringApplication) getApplication();
+		application.injectDependencies(this);
+		super.onCreate(savedInstanceState);
+	}
 
 }
