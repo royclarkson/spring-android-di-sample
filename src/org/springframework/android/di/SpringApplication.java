@@ -4,6 +4,8 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.inject.Inject;
+
 import android.app.Activity;
 import android.app.Application;
 

@@ -22,6 +22,7 @@
 		<android-version>2.1_r1</android-version>
 		<!-- Available Android versions: 1.5_r3, 1.5_r4, 1.6_r2, 2.1.2, 2.1_r1, 2.2.1, 2.3.1, 2.3.3 -->
 		<spring-android-version>1.0.0.M4</spring-android-version>
+		<inject-version>1</inject-version>
 	</properties>
 
 	<dependencies>
@@ -30,6 +31,11 @@
 			<artifactId>android</artifactId>
 			<version>${android-version}</version>
 			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>${inject-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.android</groupId>

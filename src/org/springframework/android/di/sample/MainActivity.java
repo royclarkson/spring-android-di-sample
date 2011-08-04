@@ -2,7 +2,8 @@ package org.springframework.android.di.sample;
 
 import java.util.Collections;
 
-import org.springframework.android.di.Inject;
+import javax.inject.Inject;
+
 import org.springframework.android.di.SpringActivity;
 import org.springframework.http.ContentCodingType;
 import org.springframework.http.HttpEntity;
