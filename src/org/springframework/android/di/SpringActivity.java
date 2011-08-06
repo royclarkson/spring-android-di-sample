@@ -8,9 +8,14 @@ public abstract class SpringActivity extends Activity {
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+	}
+	
+	@Override
+	public void onStart() {
 		SpringApplication application = (SpringApplication) getApplication();
 		application.injectDependencies(this);
-		super.onCreate(savedInstanceState);
+		super.onStart();
 	}
 
 }

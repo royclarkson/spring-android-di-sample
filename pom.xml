@@ -18,11 +18,14 @@
 		<android-emulator>7</android-emulator>
 		<maven-android-plugin-version>2.9.0-beta-5</maven-android-plugin-version>
 		<maven-compiler-plugin-version>2.3.2</maven-compiler-plugin-version>
-		<java-version>1.5</java-version>
+		<java-version>1.6</java-version>
 		<android-version>2.1_r1</android-version>
 		<!-- Available Android versions: 1.5_r3, 1.5_r4, 1.6_r2, 2.1.2, 2.1_r1, 2.2.1, 2.3.1, 2.3.3 -->
-		<spring-android-version>1.0.0.M4</spring-android-version>
 		<inject-version>1</inject-version>
+		<spring-android-version>1.0.0.M4</spring-android-version>
+		<spring-security-crypto-version>3.1.0.RC2.crypto</spring-security-crypto-version>
+		<spring-social-version>1.0.0.RC1</spring-social-version>
+		<jackson-version>1.8.4</jackson-version>
 	</properties>
 
 	<dependencies>
@@ -37,10 +40,56 @@
 			<artifactId>javax.inject</artifactId>
 			<version>${inject-version}</version>
 		</dependency>
-		<dependency>
+ 		<dependency>
 			<groupId>org.springframework.android</groupId>
 			<artifactId>spring-android-rest-template</artifactId>
 			<version>${spring-android-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.android</groupId>
+			<artifactId>spring-android-auth</artifactId>
+			<version>${spring-android-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-crypto</artifactId>
+			<version>${spring-security-crypto-version}</version>
+ 			<exclusions>
+				<!-- Exclude in favor of Spring Android Core -->
+				<exclusion>
+					<artifactId>spring-core</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+ 		<dependency>
+			<groupId>org.springframework.social</groupId>
+			<artifactId>spring-social-core</artifactId>
+			<version>${spring-social-version}</version>
+			<exclusions>
+				<!-- Exclude in favor of Spring Android RestTemplate -->
+				<exclusion>
+					<artifactId>spring-web</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+				<!-- Provided by Android -->
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.social</groupId>
+			<artifactId>spring-social-twitter</artifactId>
+			<version>${spring-social-version}</version>
+			<exclusions>
+				<!-- Provided by Android -->
+				<exclusion>
+					<artifactId>commons-logging</artifactId>
+					<groupId>commons-logging</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 	</dependencies>
 
